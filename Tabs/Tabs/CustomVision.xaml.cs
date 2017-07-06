@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Diagnostics.Contracts;
 using System.IO;
 using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Plugin.Media;
@@ -11,6 +8,8 @@ using Plugin.Media.Abstractions;
 using Tabs.Model;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace Tabs
 {
@@ -90,4 +89,6 @@ namespace Tabs
                 //Get rid of file once we have finished using it
                 file.Dispose();
             }
+        }
+    }
 }
