@@ -59,9 +59,9 @@ namespace Tabs
         {
             var client = new HttpClient();
 
-            client.DefaultRequestHeaders.Add("Prediction-Key", "a51ac8a57d4e4345ab0a48947a4a90ac");
+            client.DefaultRequestHeaders.Add("Prediction-Key", "fccf9a9570824165a73e1ae985ea3a3f");
 
-            string url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/Prediction/4da1555c-14ca-4aaf-af01-d6e1e97e5fa6/image?iterationId=7bc76035-3825-4643-917e-98f9d9f79b71";
+            string url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/Prediction/9fd6cd33-960c-4582-b989-4f0afb9a8c52/image?iterationId=3ade55a7-99cd-43da-8a8b-d16839b3899e";
 
             HttpResponseMessage response;
 
@@ -82,10 +82,9 @@ namespace Tabs
 
                     double max = responseModel.Predictions.Max(m => m.Probability);
 
-                    TagLabel.Text = (max >= 0.5) ? "Hotdog" : "Not hotdog";
-
+                    TagLabel.Text = (max >= 0.5) ? "Hotdog:" : "Not hotdog:";
+                    PredictionLabel.Text = max.ToString() + "%";
                 }
-
                 //Get rid of file once we have finished using it
                 file.Dispose();
             }

@@ -20,6 +20,13 @@ namespace Tabs.Droid
 
             base.OnCreate(bundle);
 
+            // Initialization for Azure Mobile Apps
+            Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+            // This MobileServiceClient has been configured to communicate with the Azure Mobile App and
+            // Azure Gateway using the application url. You're all set to start working with your Mobile App!
+            Microsoft.WindowsAzure.MobileServices.MobileServiceClient shranalNotHotdogClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
+            "http://shranalnothotdog.azurewebsites.net");
+
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,18 @@ namespace Tabs
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AzureTable : ContentPage
     {
+        
         public AzureTable()
         {
             InitializeComponent();
+        }
+
+        async void Handle_ClickedAsync(object sender, System.EventArgs e)
+        {
+            List<shranalNotHotdogModel> notHotDogInformation = await AzureManager.AzureManagerInstance.GetHotDogInformation();
+
+            HotDogList.ItemsSource = notHotDogInformation;
+            
         }
     }
 }
