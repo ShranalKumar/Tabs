@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
 
@@ -9,14 +7,15 @@ namespace Tabs
 {
     public class AzureManager
     {
+
         private static AzureManager instance;
         private MobileServiceClient client;
-        private IMobileServiceTable<shranalNotHotdogModel> shranalNotHotdogTable;
+        private IMobileServiceTable<NotHotDogModel> notHotDogTable;
 
         private AzureManager()
         {
-            client = new MobileServiceClient("http://shranalnothotdog.azurewebsites.net");
-            this.shranalNotHotdogTable = this.client.GetTable<shranalNotHotdogModel>();
+            this.client = new MobileServiceClient("https://nothotdoginformation.azurewebsites.net");
+            this.notHotDogTable = this.client.GetTable<NotHotDogModel>();
         }
 
         public MobileServiceClient AzureClient
@@ -37,14 +36,9 @@ namespace Tabs
             }
         }
 
-        public async Task<List<shranalNotHotdogModel>> GetHotDogInformation()
+        public async Task<List<NotHotDogModel>> GetHotDogInformation()
         {
-            return await this.shranalNotHotdogTable.ToListAsync();
-        }
-
-        public async Task PostHotDogInformation(shranalNotHotdogModel notHotDogModel)
-        {
-            await this.shranalNotHotdogTable.InsertAsync(notHotDogModel);
+            return await this.notHotDogTable.ToListAsync();
         }
     }
 }
