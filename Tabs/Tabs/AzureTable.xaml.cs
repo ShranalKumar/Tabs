@@ -17,7 +17,7 @@ namespace Tabs
 
         async void Handle_ClickedAsync(object sender, System.EventArgs e)
         {
-            List<NotHotDogModel> notHotDogInformation = await AzureManager.AzureManagerInstance.GetHotDogInformation();
+            List<shranalNotHotdogModel> notHotDogInformation = await AzureManager.AzureManagerInstance.GetHotDogInformation();
 
             HotDogList.ItemsSource = notHotDogInformation;
         }

@@ -10,12 +10,12 @@ namespace Tabs
 
         private static AzureManager instance;
         private MobileServiceClient client;
-        private IMobileServiceTable<NotHotDogModel> notHotDogTable;
+        private IMobileServiceTable<shranalNotHotdogModel> shranalNotHotdogTable;
 
         private AzureManager()
         {
-            this.client = new MobileServiceClient("https://nothotdoginformation.azurewebsites.net");
-            this.notHotDogTable = this.client.GetTable<NotHotDogModel>();
+            this.client = new MobileServiceClient("http://shranalnothotdog.azurewebsites.net");
+            this.shranalNotHotdogTable = this.client.GetTable<shranalNotHotdogModel>();
         }
 
         public MobileServiceClient AzureClient
@@ -36,9 +36,9 @@ namespace Tabs
             }
         }
 
-        public async Task<List<NotHotDogModel>> GetHotDogInformation()
+        public async Task<List<shranalNotHotdogModel>> GetHotDogInformation()
         {
-            return await this.notHotDogTable.ToListAsync();
+            return await this.shranalNotHotdogTable.ToListAsync();
         }
     }
 }

@@ -7,22 +7,10 @@ using System.Threading.Tasks;
 
 namespace Tabs
 {
-    public class NotHotDogModel
+    public class shranalNotHotdogModel
     {
         [JsonProperty(PropertyName = "Id")]
         public string ID { get; set; }
-
-        [JsonProperty(PropertyName = "createdAt")]
-        public DateTime createdAt { get; set; }
-
-        [JsonProperty(PropertyName = "updatedAt")]
-        public DateTime updatedAt { get; set; }
-
-        [JsonProperty(PropertyName = "version")]
-        public Version version { get; set; }
-
-        [JsonProperty(PropertyName = "deleted")]
-        public Boolean deleted { get; set; }
 
         [JsonProperty(PropertyName = "Longitude")]
         public float Longitude { get; set; }
