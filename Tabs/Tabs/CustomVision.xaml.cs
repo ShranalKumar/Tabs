@@ -10,6 +10,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using Plugin.Geolocator;
 
 namespace Tabs
 {
@@ -46,6 +47,7 @@ namespace Tabs
                 return file.GetStream();
             });
 
+            await PostLocationAsync();
             await MakePredictionRequest(file);
         }
         static byte[] GetImageAsByteArray(MediaFile file)
@@ -88,6 +90,23 @@ namespace Tabs
                 //Get rid of file once we have finished using it
                 file.Dispose();
             }
+        }
+
+        async Task PostLocationAsync()
+        {
+            var locator = CrossGeolocator.Current;
+            locator.DesiredAccuracy = 50;
+
+            var position = await locator.GetPositionAsync();
+
+            shranalNotHotdogModel model = new shranalNotHotdogModel()
+            {
+                Longitude = (float)position.Longitude,
+                Latitude = (float)position.Latitude
+
+            };
+
+            await AzureManager.AzureManagerInstance.PostHotDogInformation(model);
         }
     }
 }

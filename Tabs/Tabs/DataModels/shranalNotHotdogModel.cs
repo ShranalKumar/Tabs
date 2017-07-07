@@ -9,8 +9,8 @@ namespace Tabs
 {
     public class shranalNotHotdogModel
     {
-        [JsonProperty(PropertyName = "id")]
-        public string id { get; set; }
+        [JsonProperty(PropertyName = "Id")]
+        public string ID { get; set; }
 
         [JsonProperty(PropertyName = "Longitude")]
         public float Longitude { get; set; }

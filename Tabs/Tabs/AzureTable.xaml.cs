@@ -1,19 +1,19 @@
 ﻿using Microsoft.WindowsAzure.MobileServices;
+using Microsoft.WindowsAzure.MobileServices.Eventing;
+using Plugin.Geolocator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Tabs
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+    //[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AzureTable : ContentPage
     {
-        
         public AzureTable()
         {
             InitializeComponent();
@@ -23,8 +23,7 @@ namespace Tabs
         {
             List<shranalNotHotdogModel> notHotDogInformation = await AzureManager.AzureManagerInstance.GetHotDogInformation();
 
-            HotDogList.ItemsSource = notHotDogInformation;
-            
-        }
+            HotDogList.ItemsSource = notHotDogInformation;            
+        }        
     }
 }

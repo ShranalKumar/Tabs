@@ -7,7 +7,7 @@ using Microsoft.WindowsAzure.MobileServices;
 
 namespace Tabs
 {
-    class AzureManager
+    public class AzureManager
     {
         private static AzureManager instance;
         private MobileServiceClient client;
@@ -15,7 +15,7 @@ namespace Tabs
 
         private AzureManager()
         {
-            this.client = new MobileServiceClient("http://shranalnothotdog.azurewebsites.net");
+            client = new MobileServiceClient("http://shranalnothotdog.azurewebsites.net");
             this.shranalNotHotdogTable = this.client.GetTable<shranalNotHotdogModel>();
         }
 
@@ -40,6 +40,11 @@ namespace Tabs
         public async Task<List<shranalNotHotdogModel>> GetHotDogInformation()
         {
             return await this.shranalNotHotdogTable.ToListAsync();
+        }
+
+        public async Task PostHotDogInformation(shranalNotHotdogModel notHotDogModel)
+        {
+            await this.shranalNotHotdogTable.InsertAsync(notHotDogModel);
         }
     }
 }
